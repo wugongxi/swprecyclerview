@@ -26,11 +26,10 @@ public abstract class BRExpandAdapter<T> extends RecyclerView.Adapter<BaseRecycl
     private boolean[] misClose;
 
     public BRExpandAdapter() {
-     init();
-//        this.misClose = new boolean[0];
+        init();
     }
 
-    public BRExpandAdapter(int layout_group,int layout_item){
+    public BRExpandAdapter(int layout_group, int layout_item) {
         this.layout_group = layout_group;
         this.layout_item = layout_item;
         init();
@@ -61,9 +60,9 @@ public abstract class BRExpandAdapter<T> extends RecyclerView.Adapter<BaseRecycl
     @Override
     public int getItemViewType(int position) {
         int[] groupAndChild = getGroupAndChild(position);
-        if (groupAndChild[1]<0){
+        if (groupAndChild[1] < 0) {
             return TYPE_GROUP;
-        }else {
+        } else {
             return TYPE_ITEM;
         }
     }
@@ -72,7 +71,7 @@ public abstract class BRExpandAdapter<T> extends RecyclerView.Adapter<BaseRecycl
     public BaseRecyclerHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         if (viewType == TYPE_GROUP) {
             return new GroupHolder(View.inflate(parent.getContext(), layout_group, null));
-        } else{
+        } else {
             return new ChildHolder(View.inflate(parent.getContext(), layout_item, null));
         }
     }
@@ -85,7 +84,7 @@ public abstract class BRExpandAdapter<T> extends RecyclerView.Adapter<BaseRecycl
                 @Override
                 public void onClick(View view) {
                     switchState(x[0]);
-                    Log.e("---------","--#"+x[0]+"#--#"+x[1]+"#---#"+getItemCount());
+                    Log.e("---------", "--#" + x[0] + "#--#" + x[1] + "#---#" + getItemCount());
 
                 }
             });
@@ -123,10 +122,10 @@ public abstract class BRExpandAdapter<T> extends RecyclerView.Adapter<BaseRecycl
             if (count == position) {
                 return x;
             } else {
-                if (misClose[x[0]]){
+                if (misClose[x[0]]) {
                     continue;
                 }
-                int childrenCount = getChildrenCount(mList.get(x[0]),i);
+                int childrenCount = getChildrenCount(mList.get(x[0]), i);
                 if (count < position && position <= count + childrenCount) {
                     x[1] = position - count - 1;
                     return x;
@@ -143,7 +142,7 @@ public abstract class BRExpandAdapter<T> extends RecyclerView.Adapter<BaseRecycl
     public int getItemCount() {
         int count = 0;
         for (int i = 0; i < mList.size(); i++) {
-            count += (!misClose[i] ? getChildrenCount(mList.get(i),i) : 0) + 1;
+            count += (!misClose[i] ? getChildrenCount(mList.get(i), i) : 0) + 1;
         }
         return count;
     }
@@ -152,11 +151,12 @@ public abstract class BRExpandAdapter<T> extends RecyclerView.Adapter<BaseRecycl
     public int getGroupCount() {
         return mList.size();
     }
-    protected abstract int getChildrenCount(T t,int group) ;
+
+    protected abstract int getChildrenCount(T t, int group);
+
     protected abstract void bindGroup(Context context, BaseRecyclerHolder bHolder, T t, int group);
-    protected abstract void bindChild(Context context, BaseRecyclerHolder bHolder,T t, int group, int child);
 
-
+    protected abstract void bindChild(Context context, BaseRecyclerHolder bHolder, T t, int group, int child);
 
 
     class GroupHolder extends BaseRecyclerHolder {
