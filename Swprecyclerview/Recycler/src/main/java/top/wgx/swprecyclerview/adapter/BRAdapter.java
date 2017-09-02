@@ -193,8 +193,6 @@ public class BRAdapter<T> extends RecyclerView.Adapter<BaseRecyclerHolder> {
                 bindData(holder, position, mList.get(position));
             }
         }
-
-
     }
 
     protected void bindData(BaseRecyclerHolder holder, int position, T t) {
