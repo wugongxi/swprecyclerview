@@ -2,6 +2,7 @@ package top.wgx.swprecyclerview.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
@@ -17,7 +18,7 @@ import top.wgx.swprecyclerview.adapter.a.BaseRecyclerHolder;
  */
 
 public abstract class BRExpandAdapter<T> extends RecyclerView.Adapter<BaseRecyclerHolder> {
-    private boolean mDefault = false;//默认关闭
+    private boolean mDefault = true;//默认关闭
     private static final int TYPE_GROUP = 1011;
     private static final int TYPE_ITEM = 1012;
     private List<T> mList = null;
@@ -84,6 +85,8 @@ public abstract class BRExpandAdapter<T> extends RecyclerView.Adapter<BaseRecycl
                 @Override
                 public void onClick(View view) {
                     switchState(x[0]);
+                    Log.e("---------","--#"+x[0]+"#--#"+x[1]+"#---#"+getItemCount());
+
                 }
             });
             bindGroup(holder.itemView.getContext(), holder, mList.get(x[0]), x[0]);
@@ -140,7 +143,7 @@ public abstract class BRExpandAdapter<T> extends RecyclerView.Adapter<BaseRecycl
     public int getItemCount() {
         int count = 0;
         for (int i = 0; i < mList.size(); i++) {
-            count += (misClose[i] ? getChildrenCount(mList.get(i),i) : 0) + 1;
+            count += (!misClose[i] ? getChildrenCount(mList.get(i),i) : 0) + 1;
         }
         return count;
     }

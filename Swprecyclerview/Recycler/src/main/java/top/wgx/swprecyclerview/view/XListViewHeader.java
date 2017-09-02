@@ -99,18 +99,18 @@ public class XListViewHeader extends LinearLayout
                 {
                     mArrowImageView.clearAnimation();
                 }
-                mHintTextView.setText("‰∏ãÊãâÂà∑Êñ∞...");
+                mHintTextView.setText("ø™ ºÀ¢–¬");
                 break;
             case STATE_READY:
                 if (mState != STATE_READY)
                 {
                     mArrowImageView.clearAnimation();
                     mArrowImageView.startAnimation(mRotateUpAnim);
-                    mHintTextView.setText("ÂºÄÂßãÂä†ËΩΩ...");
+                    mHintTextView.setText("Õ£÷πÀ¢–¬");
                 }
                 break;
             case STATE_REFRESHING:
-                mHintTextView.setText("Âä†ËΩΩÊï∞ÊçÆ‰∏≠...");
+                mHintTextView.setText("À¢–¬÷–...");
                 break;
             default:
         }

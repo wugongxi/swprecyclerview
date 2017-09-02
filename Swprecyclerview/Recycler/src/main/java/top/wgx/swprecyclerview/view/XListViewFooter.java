@@ -44,7 +44,7 @@ public class XListViewFooter extends LinearLayout
         if (state == STATE_READY)
         {
             mHintView.setVisibility(View.VISIBLE);
-            mHintView.setText("å¼€å§‹åŠ è½½...");
+            mHintView.setText("¿ªÊ¼Ë¢ÐÂ");
         }
         else if (state == STATE_LOADING)
         {
@@ -53,7 +53,7 @@ public class XListViewFooter extends LinearLayout
         else
         {
             mHintView.setVisibility(View.VISIBLE);
-            mHintView.setText("ä¸Šæ‹‰åŠ è½½æ›´å¤š..");
+            mHintView.setText("ÉÏÀ­¼ÓÔØ¸ü¶à");
         }
     }
 

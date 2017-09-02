@@ -9,6 +9,8 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 
+import com.wgx.net.util.HttpsUtils;
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -43,7 +45,6 @@ public class SecondActivity extends Activity{
         adapter.setList(data);
 
 
-
     }
     class MyAdaper extends BRExpandAdapter<ArrayList<String>> {
 
@@ -58,12 +59,12 @@ public class SecondActivity extends Activity{
 
         @Override
         protected void bindGroup(Context context, BaseRecyclerHolder bHolder, ArrayList<String> position, int t) {
-            bHolder.setText(R.id.tv_group,"  group--"+t);
+            bHolder.setText(R.id.tv_goodname,"  group--"+t);
         }
 
         @Override
         protected void bindChild(Context context, BaseRecyclerHolder bHolder, ArrayList<String> strings, int group, int child) {
-            bHolder.setText(R.id.tv_child,strings.get(child));
+            bHolder.setText(R.id.tv_shop_name,strings.get(child));
         }
 
     }
