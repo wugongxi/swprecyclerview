@@ -4,7 +4,7 @@ apply plugin: 'com.jfrog.bintray'
 
 android {
     compileSdkVersion 26
-    buildToolsVersion '26.0.0'
+    buildToolsVersion '26.0.1'
 
     defaultConfig {
         minSdkVersion 15
@@ -66,7 +66,7 @@ artifacts {
 ext {
     siteUrl = 'https://github.com/211685568/swprecyclerview'
     gitUrl = 'https://github.com/211685568/swprecyclerview.git'
-    currentVersion = '0.0.13'
+    currentVersion = '0.0.15'
     groupId = 'top.wgx.odyssey'
     artifactId = 'swprecyclerview'
     desc = 'Android swprecyclerview'

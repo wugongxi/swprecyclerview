@@ -195,11 +195,11 @@ public class BRAdapter<T> extends RecyclerView.Adapter<BaseRecyclerHolder> {
         }
     }
 
-    protected void bindData(BaseRecyclerHolder holder, int position, T t) {
+    protected void bindData(BaseRecyclerHolder bHolder, int position, T t) {
 
     }
 
-    protected void bindData(Context context, RecyclerView.ViewHolder holder, int position, T t) {
+    protected void bindData(Context context, BaseRecyclerHolder bHolder, int position, T t) {
 
     }
 
@@ -209,11 +209,11 @@ public class BRAdapter<T> extends RecyclerView.Adapter<BaseRecyclerHolder> {
         notifyDataSetChanged();
     }
 
-    protected void bindFootData(RecyclerView.ViewHolder holder) {
+    protected void bindFootData(BaseRecyclerHolder bHolder) {
 
     }
 
-    protected void bindHeaderData(RecyclerView.ViewHolder holder) {
+    protected void bindHeaderData(BaseRecyclerHolder bHolder) {
 
     }
 
